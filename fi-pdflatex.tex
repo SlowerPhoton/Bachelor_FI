@@ -72,8 +72,7 @@
 The tasks generally revise basic concepts from the lectures and help build geometric intuition about them.  For many questions, symbolic computation has proven useful. In this case, the full functionality is implemented using Python 3; the symbolic computation is accomplished via the open-source Python library SymPy. 
     },
     thanks      = {%
-      These are the acknowledgements for my thesis, which can
-      span multiple paragraphs.
+      I take this opportunity to express gratitude to my supervisor doc. RNDr. Pavel Matula, Ph.D. and appreciate him for not losing his patience with me. Additionally, I would like to say a special thanks to Eva Drštková for going the extra mile to make this thesis possible. 
     },
     bib         = example.bib,
     %% Uncomment the following line (by removing the %% at the
@@ -161,7 +160,7 @@ You want to generate a new question set for the desired task. You need to know w
     
 4. Once the class is loaded, you can generate the questions calling its methods. It is recommended to call
 ``` Python
-    TaskClassName.prepare_n_questions(n,  limits, tolerance, filename, points)
+>>> TaskClassName.prepare_n_questions(n,  limits, tolerance, filename, points)
 ```
 where you replace ```TaskClassName``` with the actual name of the class. 
     * argument **```n```** specifies the number of questions to be created
@@ -171,6 +170,16 @@ where you replace ```TaskClassName``` with the actual name of the class.
     * argument **```points```** specifies the number of points for each answer field (as a list of points respecting the order of the answer fields)
     
 #. You can find the generated questions inside the file **```filename```**. Copy and paste them directly inside a question set in IS.
+
+\subsection{Quick example}
+
+Here is a quick Python console example for generating a question set for a concrete task (`ScalarProductFromAngle`).  
+
+```Python
+>>> ScalarProductFromAngle.prepare_n_questions(20, [-5, 5], 0.0001,                         "scalar_product_from_angle_questions.txt")
+```
+
+This command generates 20 questions inside the file \newline `scalar_product_from_angle_questions.txt`. The tolerance for the answers is 0.0001 and the limits are `[-5, 5]`, the points are not specified so the task default will be used. 
 
 \section{Testing task implementation}
 
@@ -184,7 +193,7 @@ You want to make sure the implemented task produces valid instances.
     
 4. Once the class is loaded, you can generate a list of instances calling its methods. Save the result inside a variable to use it later.
 ``` Python
-    instances = TaskClassName.get_n_unique_instances(cls, n, limits, max_rounds=100)
+>>> instances = TaskClassName.get_n_unique_instances(n, limits, max_rounds=100)
 ```
 where you replace ```TaskClassName``` with the actual name of the class. 
     * argument **```n```** specifies the number of different instances to be created
@@ -194,10 +203,25 @@ where you replace ```TaskClassName``` with the actual name of the class.
 
 5. Now, it is possible to test the validity of the generated instances. 
 ``` Python
-    instances = TaskClassName.get_n_unique_instances(cls, n, limits, max_rounds=100)
+>>> TaskClassName.test_instances(instances)
+```
+where you replace ```TaskClassName``` with the actual name of the class. 
+    * argument **```limits```** takes a list of instances to be tested
+    * the method prints out the number of invalid instances, and the concrete instances that failed the tests
+    * the method returns `True` if all the instances are valid, `False` otherwise
+
+
+\subsection{Quick example}
+
+Here is a quick Python console example for testing a concrete task (`ScalarProductFromAngle`). 
+
+```Python
+>>> instances = ScalarProductFromAngle.get_n_unique_instances(100, [-5, 5])
+>>> ScalarProductFromAngle.test_instances(instances)
+0 errors in 100 instances
+True
 ```
 
-This section will talk about more advanced usage scenarios -- including testing. It will explain all the Task methods from a user's perspective -- i.e., someone who is not going to implement them but uses them.
 
 \chapter{Development guide}
 
@@ -250,7 +274,7 @@ In this case, the method should be robust enough to ignore undesired values with
 \end{shaded}
 
 The function **returns a valid instance** of the problem, typically randomly generated.
-However, the instance **must be hashable** and so all lists inside an instance should be replaced by tuples etc.
+However, the instance **must be hashable** (it has a `__hash__()` method) and so all lists inside an instance should be replaced by tuples etc.
 
 
 \subsubsection{Abstract method testfun} 
@@ -298,7 +322,7 @@ Before you finish the implementation of the new task, you should document it. Ea
 \label{sec:example}
 
 *In this section, I will use a very primitive example to demonstrate how the 
-development should ideally work.*
+development of a new task should ideally work.*
 
 The example problem is to find the following number in the arithmetic sequence, 
 given by its first two terms.
@@ -450,15 +474,42 @@ can be directly passed into a ROPOT.
 
 \chapter{Glossary}
 
+All these keywords are explained in the text of the thesis when they are first introduced. However, it might be difficult to look for them if you do not read the text sequentially.
+
 
 \paragraph{instance}
 
-A collection of data that uniquely represents a given question, including the answer to it. E.g., for the question "Compute the sum $1 + 3$.", the instance could be 1, 3, 4.
+A collection of data that uniquely represents a given question, including the answer to it. E.g., for the question ``\textit{Compute the sum $1 + 3$}'', the instance could be \textit{1, 3, 4.}
+
+\paragraph{IS}
+
+The information system for MUNI, available at \href{https://is.muni.cz/}{https://is.muni.cz/}.
 
 \paragraph{question}
+
+A human-readable text containing the problem formulation and all the necessary data to solve it. It has a unique answer. E.g., the text ``\textit{Compute the sum $1 + 3$}.'' is a question.
+
+
+\paragraph{question set}
+
+This is usually a file containing one or more questions. An example can be found inside the root of the project: \newline \verb|sample_question_set.txt|.
+
+\paragraph{ROPOT}
+
+\textbf{R}evision \textbf{O}pinion \textbf{PO}ll and \textbf{T}esting is an online application in IS capable of assigning problems to students and evaluating their answers. It can parse question sets.
+
+
+\paragraph{task}
+
+The implementation for generation of a concrete problem. E.g., the class \verb|ImplicitLineFromTwoPoints|.
+
 
 \appendix
 
 \input{implemented_tasks}
+
+
+\chapter{Contents}
+
 
 \end{document}
