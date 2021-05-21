@@ -1,0 +1,28 @@
+\shorthandoff{-}
+\begin{markdown*}{%
+  hybrid,
+  definitionLists,
+  footnotes,
+  inlineFootnotes,
+  hashEnumerators,
+  fencedCode,
+  citations,
+  citationNbsps,
+  pipeTables,
+  tableCaptions,
+}
+
+The course PV189, Mathematics for Computer Graphics, takes place in fall, and its goal is to teach practical utilization of mathematics in the computer graphics area. It is obligatory for the master's program Visual Informatics at the Faculty of Informatics, Masaryk University. At the end of each lecture, students receive homework in the form of ROPOTs, practising the new topic. ROPOTs (acronym for **R**evision **O**pinion **PO**ll and **T**esting) is an online application (native to the Masaryk University information system IS) capable of assigning problems to students and evaluating their answers.
+
+The project's goal is to automatically generate question sets compatible with ROPOTs, for various problems related to the lecture topic. It should be feasible to compute the question sets by hand on a sheet of paper, possible with the help of a calculator.  
+
+The project's outcome should also be a clean and reasonable way to manage the code for generating question sets. It has to be easily altered and expanded. 
+
+The basis for the question sets is question sets created by Dmitry Sorokin, and Pavel Matula for the course PV189 \cite{ucebni_materialy}; concretely, I have been using the latest version from Fall 2020. Most of the original questions are only slightly modified, a few of them received a complete redesign. I drew the necessary theory to solve and generate question sets from lecture materials available at the same source. 
+
+The questions are randomly generated, with nice numbers in the formulation preventing a tedious computation. Because the source code of the project responsible for the generation is public, I was forced to hide the parts of the code which are in control of the actual computation of the correct answer. To make it transparent, the sensitive parts of the code for each task have been cut out inside a method called \verb|solve_instance|. In the public version of the project, the body of these methods has been replaced by the keyword `pass`. Therefore, this project version cannot be run and it would not be possible to check out its output. However, I have included a sample output for each of the implemented tasks in the appendix.
+
+This thesis aims to introduce the tools I have used to create the project, document the project itself, and provide an easy-to-follow guide to use it. It briefly explains the contents of each lecture and lists all the implemented tasks. In order to understand the output of the project, it is necessary to have a basic knowledge of ROPOTs and their use in IS.   
+
+\end{markdown*}
+\shorthandon{-}

@@ -1,0 +1,86 @@
+\shorthandoff{-}
+\begin{markdown*}{%
+  hybrid,
+  definitionLists,
+  footnotes,
+  inlineFootnotes,
+  hashEnumerators,
+  fencedCode,
+  citations,
+  citationNbsps,
+  pipeTables,
+  tableCaptions,
+}
+
+Because the outcome of this project is question files, which can be pasted directly into IS, I find it necessary to explain the basic ROPOT syntax I need to use in my project. 
+
+Let's take a look at a simple ROPOT file.
+
+```
+What is 3 * 2.5? :n
+What is bigger: apples or blueberries? :t
+
+:n=7.5 ok
+:t=apples ok
+```
+
+In this example, the first occurrence of `:n` creates an input field for the student to put the answer into. The letter `n` specifies that the input will be a number. Similarly, the first occurrence of `:t` creates an input text field.
+
+Afterward, we need to declare the correct answer to these fields somewhere. It is done by repeating the name of the field and using the equals sign `=` to assign the correct answer to it. There must be no whitespace around the equals sign. Each declaration must be on its own line, and the line must end with `ok` to confirm the correctness of the answer. This might seem excessive, but it is useful for creating a list of possible answers for the student.
+
+If we need to include multiple input fields of the same type in the question, we can differentiate them by numbering them.
+
+```
+What is 3 * 2.5? :n1
+What is 3 * 3?   :n2 
+
+:n1=7.5 ok
+:n2=9   ok
+```
+
+Naturally, there can be multiple questions inside a question set. They are separated by a single line containing precisely two dashes. The input field names exist within a single question only, and thus we can reuse them in another question.
+
+```
+What is 3 * 2.5? :n1
+What is 3 * 3?   :n2 
+
+:n1=7.5 ok
+:n2=9   ok
+----
+What is 2 * 2.5? :n1
+What is 2 * 3?   :n2 
+
+:n1=5 ok
+:n2=6 ok
+```
+
+Using the input number field, we can even specify a range in which the answer is considered correct. The range is specified using two dots~`..`, and the answer must be enclosed in double-quotes. Any answer within the specified range (inclusive) will be accepted as correct.
+
+```
+What is 3 * 2.5? :n1
+What is 3 * 3? :n2
+
+:n1="7.4..7.6" ok
+:n2=9 ok
+```
+
+The questions can use \LaTeX{} to format algebraic expressions. In that case, the math must be enclosed inside `<m>` and `</m>` tags. 
+
+```
+What is <m>3 \times2.5</m>? :n
+
+:n="7.4..7.6" ok
+```
+
+Finally, we can specify the number of points the student gets for the correct answer. To do this, we insert the number of points right after the definition of the correct answer. In this case, we want to reward the correct answer with 1 point.
+
+```
+What is <m>3 \times2.5</m>? :n
+
+:n="7.4..7.6" 1 ok
+```
+
+There are many more ways to customize a question, and they are documented in IS \cite{ropots_def}. For this project, more advanced syntax is not necessary.
+
+\end{markdown*}
+\shorthandon{-}

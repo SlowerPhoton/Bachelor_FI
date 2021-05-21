@@ -1,0 +1,161 @@
+\shorthandoff{-}
+\begin{markdown*}{%
+  hybrid,
+  definitionLists,
+  footnotes,
+  inlineFootnotes,
+  hashEnumerators,
+  fencedCode,
+  citations,
+  citationNbsps,
+  pipeTables,
+  tableCaptions,
+}
+
+To take advantage of the symbolic computation, the Python library SymPy \cite{sympy} proved to be a good fit for this project. It is versatile, and it supports most of the mathematical objects taught in the course PV189. Because of the symbolic computation, it is not very effective at calculating the results fast, but that is not a big issue in this project since we usually generate about 20 questions for each set. It is a handy tool for precise calculations, incorporating them into instances, and converting the expressions into \LaTeX{} to create questions.
+
+Throughout my project, it is used in most tasks; namely, there are example methods using SymPy in the file \verb|sympy_utils.py| (and some also in \verb|utils.py|).  
+
+\subsection{Introduction}
+
+First, we need to import the library in order to use it.
+
+```python
+>>> import sympy as sp
+```
+
+
+There are many ways to create an expression in SymPy, depending on the type of expression we are trying to write. The simplest scenario might involve numerical simplifications.
+
+```python
+>>> sp.cos(sp.pi/3)
+1/2
+>>> sp.sqrt(8)
+2*sqrt(2)
+```
+
+When we want to convert any SymPy expression into a \LaTeX{} string, we can call the \verb|sympy.latex| method.
+
+```python
+>>> sp.latex(sp.sqrt(8))
+'2 \\sqrt{2}'
+```
+
+A more advanced scenario might use expressions with variables.
+
+```python
+>>> x = sp.Symbol('x')
+>>> x**3 + 1**x + sp.exp(X)
+x**3 + exp(x) + 1
+```
+
+The library is able to use these symbolic expressions for symbolic derivation, integration, simplification\ldots
+
+```python
+>>> sp.diff(x**3, x)
+3*x**2
+>>> sp.integrate(sp.cos(x) + 1, x)
+x + sin(x)
+```
+
+Even these expressions can be turned into \LaTeX{} strings.
+
+```python
+>>> sp.latex(3*x**2)
+'3 x^{2}'
+```
+
+\subsection{Usage in this project}
+
+In this project, I am taking advantage of representing rational numbers in SymPy, because \verb|fractions.Fraction| can't be easily converted into \LaTeX{}, and it is necessary to keep precise rational representation for problem assignments. 
+
+```python
+>>> sp.Rational(3, 5)
+3/5
+>>> sp.latex(sp.Rational(3, 5))
+'\\frac{3}{5}'
+```
+
+When it comes to printing, this library is also suitable for algebraic expressions. For example, when we want to use the implicit plane equation in the assignment ($ax + by +cz +d = 0$), it is complicated to do by hand. We must take into account that if $a = 0$, the whole term $ax$ must be left out, and so should be the $+$ sign after it. If the coefficient is 1 or -1, it should not be displayed at all. There are many such issues concerning this simple printing problem. With SymPy, it is easy because it has all this logic built-in already.
+
+```python
+>>> x, y, z = sp.Symbol('x'), sp.Symbol('y'), sp.Symbol('z')
+>>> a, b, c, d = 0, -1, 1, 2
+>>> sp.latex(a*x + b*y + c*z + d)
+'- y + z + 2'
+```
+
+The library can work with complex numbers, and it is able to simplify them. 
+
+```python
+>>> (1 + sp.I)**2 
+(1 + I)**2
+>>> ((1 + sp.I)**2).simplify()
+2*I
+```
+
+Every expression in SymPy has the \verb|simplify| method, which is highly customizable and can be forced into simplifying only certain aspects of the expression -- such as trigonometric, power, or  factor simplifications. It can also be suppressed.
+
+```python
+>>> sp.sqrt(8, evaluate=False)
+sqrt(8)
+```
+
+We can even specify parts of the expression that must not be simplified. This is especially useful in assignments, where the students need to simplify the given expressions themselves.
+
+```python
+>>> (x + 1) * 2
+2*x + 2
+>>> sp.UnevaluatedExpr(x + 1) * 2
+2*(x + 1)
+```
+
+SymPy is able to work with quaternions, even though it is very limited in certain aspects. It supports quaternion multiplication, addition, and integer exponentiation.  
+
+```python
+>>> sp.Quaternion(0, 1, 2, 3)
+0 + 1*i + 2*j + 3*k
+>>> sp.Quaternion(0, 1, 2, 3) * sp.Quaternion(0, 1, 0, 0)
+(-1) + 0*i + 3*j + (-2)*k
+>>> sp.Quaternion(0, 1, 0, 0) ** 2
+(-1) + 0*i + 0*j + 0*k
+```
+
+The library also supports quaternion logarithm, but it is not very intuitive or convenient. It can be computed using the protected method \verb|\_ln| of the \verb|Quaternion| instance. See \ref{subsection:pitfalls} for more information.
+
+```python
+>>> sp.Quaternion(0, 1, 0, 0)._ln()
+0 + pi/2*i + 0*j + 0*k
+```
+
+\subsection{Pitfalls}
+\label{subsection:pitfalls}
+
+Aside from having many benefits for this project, the SymPy library is far from perfect. It works fine for basic expressions, but we can find many imperfections if we dive deeper into the library. For example, the native logarithm method does not support quaternions. It treats it as a symbolic logarithmic expression.
+
+```python
+>>> sp.ln(sp.Quaternion(0, 1, 0, 0))
+log(0 + 1*i + 0*j + 0*k)
+>>> sp.ln(sp.Quaternion(0, 1, 0, 0)).simplify()
+log(0 + 1*i + 0*j + 0*k)
+>>> sp.ln(sp.Quaternion(0, 1, 0, 0)).evalf()
+log(0 + 1*i + 0*j + 0*k)
+```
+
+SymPy only supports integer exponentiation for quaternions, even though it could be easily implemented using the built-in \verb|exp| and \verb|\_ln| methods. For some assignments, I needed to implement this functionality myself (this can be found in the \verb|sympy_utils.py| file).
+
+The SymPy documentation is not complete; the methods are often not described in enough detail (e.g., the method `Quaternion.to_axis_angle`); for some methods, the documentation is missing altogether (e.g., \verb|Quaterion.\_ln|). I often had to read the actual implementation of the library to understand its behavior at edge cases. Luckily, the source code is meticulously documented, and it is available online \cite{sympy_source}. 
+
+The library does not always produce the best \LaTeX{} strings for all expressions. It is customizable, but it takes a lot of effort, and ideally, it should be the default.
+
+```python
+>>> sp.latex(sp.Quaternion(0, 1, 0, 0))
+'0 + 1 i + 0 j + 0 k'
+>>> sp.latex(sp.Quaternion(0, -3, 0, 0))
+'0 + \\left(-3\\right) i + 0 j + 0 k'
+```
+
+Also, this library does not have a convenient way to work with vectors. They are treated as matrices, so it is necessary always to carry the extra dimension. An alternative is to use the `CoordSys3D` class, but it has its own inconveniences because it represents the coordinates of the vector as attributes `i, j, k` of the class. It also supports vectors in three dimensions only.
+
+\end{markdown*}
+\shorthandon{-}

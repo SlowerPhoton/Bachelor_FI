@@ -1,0 +1,1634 @@
+\chapter{Implemented tasks}
+
+\shorthandoff{-}
+\begin{markdown*}{%
+  hybrid,
+  definitionLists,
+  footnotes,
+  inlineFootnotes,
+  hashEnumerators,
+  fencedCode,
+  citations,
+  citationNbsps,
+  pipeTables,
+  tableCaptions,
+}
+
+In this chapter, I will focus on listing all the implemented tasks while providing a high-level commentary for each of them. Instead of dwelling on implementation details, I will show the results and explain what knowledge the tasks aim to test.
+
+Each section corresponds to a lecture and each subsection corresponds to a task for the given lecture.
+
+\section{Lecture 1}
+
+The goal of this lecture is to revise high school concepts, the basics of analytical geometry. It covers
+
+* points, vectors, norm, and dot product;
+* barycentric coordinates;
+* parametric, implicit equations of 2D lines;
+* point to line distance;
+* intersection of two lines.
+
+\subsection{AngleBetweenVectors}
+
+This task makes sure the student understands the connection between the dot product of two vectors and the size of the angle between them.
+
+\subsubsection{Problem formulation}
+Given two 3D vectors $u$ and $v$, find the angle between them.
+
+\subsubsection{ROPOT question example}
+
+```
+Find the angle <m>\theta \in [0, \pi]</M> between vectors 
+<m>u</m> and <m>v</m> where <m>u = (-2,4,3)^\top, \; 
+v = (0,-2,3)^\top </m>. Write the answer in radians 
+(if the answer is a floating point number round it to 
+4 decimal places).
+
+<m>\theta = </M> :n
+
+:n=" 1.5192.. 1.5194" 2 ok  
+```
+
+\subsection{DistancePointFromImplicitLine}
+
+By completing this task, the student shows the knowledge and understanding of the point--line distance formula. 
+
+\subsubsection{Problem formulation}
+Find the distance between a given point $P$ and a line $l$, where $l$ is a 2D line given implicitly as $ax + by + c = 0$.
+
+\subsubsection{ROPOT question example}
+
+```
+Find the distance <m>d</m> from the line <m>l: -4x +2y -2 = 0</m> 
+to the point <m>[5,-5]^\top</m>
+
+<m>d = </m> :n
+
+:n=" 7.1553.. 7.1555" 2 ok
+```
+
+\subsection{DistancePointFromParametricLine}
+
+In order to solve this task, the student must understand basic notions in 2D geometry, especially direction and normal line vectors, and the parametric equation of line.
+
+\subsubsection{Problem formulation}
+Find the distance between the point $P$ and the line $l$, where $l$ is a 2D line given parametrically as $l(t) = Q + t\vec v$.
+
+\subsubsection{ROPOT question example}
+
+```
+Find the distance <m>d</m> from the line <m> l(t) = 
+\begin{bmatrix} 5 \\ -2 \end{bmatrix} + t 
+\begin{pmatrix} -5 \\ 0 \end{pmatrix} </m> to 
+the point <m>[-4,-4]^\top</m>
+
+<m>d = </m> :n
+
+:n=" 1.9999.. 2.0001" 2 ok
+```
+
+\subsection{EquallyDistantPointOnImplicitLine}
+
+This task ensures the student has a deeper understanding of 2D geometry. The student should be able to form his thoughts as equations and solve them.   
+
+\subsubsection{Problem formulation}
+Find the point $Q$ on the line $ax + by + c = 0$, which is equally distant to the given points $P$ and $R$.
+
+\subsubsection{ROPOT question example}
+
+```
+Find the point on the line <m>- x + 3 y + 5 = 0</m> which is 
+equally distant from the points <m>[9, -2]^\top</m> and 
+<m>[1, -8]^\top</m> (if the answer is a floating point 
+number round it to 4 decimal places).
+<m>x =</m> :n1
+<m>y =</m> :n2
+
+:n1=" 1.9999.. 2.0001" 2 ok
+:n2="-1.0001..-0.9999" 2 ok
+```
+
+
+\subsection{ImplicitEquationFromParametric}
+
+To solve this task, the student must understand basic equations of 2D line.
+
+\subsubsection{Problem formulation}
+Given the parametric equation of a 2D line, find its implicit equation.
+
+\subsubsection{ROPOT question example}
+
+```
+Fill in the missing values of the coefficients 
+<m>a, b</m> and <m>c</m> of the implicit equation of 
+the line <m>l(t) = \begin{bmatrix} 3 \\ 3 \end{bmatrix} + 
+t\begin{pmatrix} 3 \\ 5 \end{pmatrix}</m> (if the answer 
+is a floating point number round it to 4 decimal places).
+ 
+<m>a= </m> :n1 </br>
+<m>b = 5 </m> </br>
+<m>c = </m> :n2 </br>
+
+:n1="-8.3334..-8.3332" 2 ok
+:n2=" 9.9999.. 10.0001" 2 ok
+```
+
+\subsection{ImplicitLineFromPointAndParallel}
+
+The student should have a basic notion of the implicit equation of line and how it is formed.
+
+\subsubsection{Problem formulation}
+Find the implicit equation of a line passing through the point $P$ and parallel to the vector $\vec v$ (or $y$-axis), given the coefficient $a$.
+
+\subsubsection{ROPOT question example}
+
+```
+Fill in the missing values of the coefficients <m>a, 
+b</m> and <m>c</m> of the implicit equation of the line 
+which goes through the point <m>[-1,-4]^\top</m> 
+parallel to the vector <m>(2,-4)^\top</m> 
+(if the answer is a floating point number round it to 
+4 decimal places).
+
+<M>a = 1</m>
+<M>b = </m> :n2
+<M>c = </m> :n3
+
+:n2=" 0.4999.. 0.5001" 2 ok
+:n3=" 2.9999.. 3.0001" 2 ok
+```
+
+\subsection{ImplicitLineFromTwoPoints}
+
+The student must have a deeper understanding of the implicit line equation and vectors in general. 
+
+\subsubsection{Problem formulation}
+Find the implicit equation of a line passing through the points $P$ and $Q$, given the coefficient $b$.
+
+\subsubsection{ROPOT question example}
+
+```
+Fill in the missing values of the coefficients <m>a, 
+b</m> and <m>c</m> of the implicit equation of 
+the line which goes through the points <m>[-1,-2]^\top</m> 
+and <m>[4,3]^\top</m> (if the answer is a floating 
+point number round it to 4 decimal places).
+
+<M>a = </m> :n1
+<M>b = -5</m>
+<M>c = </m> :n3
+
+:n1=" 4.9999.. 5.0001"  2 ok
+:n3="-5.0001..-4.9999"  2 ok
+```
+
+\subsection{ImplicitLineThroughTriangle}
+
+This task ensures the student is able to apply the learned techniques to more general problems.
+
+\subsubsection{Problem formulation}
+Find the implicit equation $ax + by + c = 0$ of the line passing through $A$ and perpendicular to $BC$, given vertices of the triangle $ABC$ and coefficient $a$.
+
+\subsubsection{ROPOT question example}
+
+```
+The vertices of the triangle <m>ABC</m> are given 
+<m>A=[4,-2]^\top, B=[2,-1]^\top</m> and <m>C=[5,-5]^\top</m>. 
+Write the coefficients <m>a, b</m> and <m>c</m> of 
+the implicit equation of the line which is perpendicular to 
+<m>BC</m> and goes through the point <m>A</m>.
+
+<m>a = -1 </m> 
+<m>b = </m> :n2
+<m>c = </m> :n3
+
+:n2=" 1.3332.. 1.3334" 2 ok
+:n3=" 6.6666.. 6.6668" 2 ok
+```
+
+\subsection{ParametricEquationFromImplicit}
+
+To solve this task, the student must understand basic equations of 2D line.
+
+\subsubsection{Problem formulation}
+Given the implicit equation of a 2D line, find its parametric equation.
+
+\subsubsection{ROPOT question example}
+
+```
+Fill in the missing values of <m>P = [p_1, p_2]^\top</m> and 
+<m>v = (v_1, v_2)^\top</m> in the parametric equation of 
+the following line <m>l: - x - y - 2 = 0</m> (if the answer 
+is a floating point number round it to 4 decimal places).
+
+<m>p_1 = 0</m></br>
+<m>p_2 = </m> :n1 </br>
+<m>v_1 = 3</m></br>
+<m>v_2 = </m> :n2 </br>
+        
+:n1="-2.0001..-1.9999" 2 ok 
+:n2="-3.0001..-2.9999" 2 ok
+```
+
+\subsection{ParametricEquationFromPointAndVector}
+
+In order to solve this task, the student should understand the basics of the parametric line equation and how it is formed.
+
+\subsubsection{Problem formulation}
+Find the parametric equation of a line $l(t) = P + t\vec v$ passing through the point $Q$ and parallel to the vector $\vec u$, given the x-coordinate of $P$ and the y-coordinate of $\vec v$.
+
+\subsubsection{ROPOT question example}
+
+```
+Fill in the values of <m>P=[p_1,p_2]^\top</m> and 
+<m>v=(v_1,v_2)^\top</m> in the parametric equation of 
+the line which goes through the point <m>[-1,-5]^\top</m> 
+parallel to the vector <m>(-1,-4)^\top</m> (if the answer 
+is a floating point number round it to 4 decimal places).
+
+<m>p_1 = 2 </m> 
+<m>p_2 =  </m> :n2
+<m>v_1 =  </m> :n3
+<m>v_2 = 1 </m> 
+
+:n2=" 6.9999.. 7.0001" 2 ok
+:n3=" 0.2499.. 0.2501" 2 ok
+```
+
+
+\subsection{ParametricEquationFromSlopeAndPoint}
+
+By completing this task, the student proves a deeper understanding of the parametric line equation.
+
+\subsubsection{Problem formulation}
+Find the parametric equation of a line $l(t) = P + t\vec v$ with a given slope and passing through the point $Q$, given y-coordinates of $P$ and $\vec v$.
+
+\subsubsection{ROPOT question example}
+
+```
+Fill in the values of <m>P=[p_1,p_2]^\top</m> and 
+<m>v=(v_1,v_2)^\top</m> in the parametric equation of 
+the line which goes through the point <m>[2,-3]^\top</m> and 
+has the slope (in the explicit equation) <m>\hat{a} = -2</m> 
+(if the answer is a floating point number round it to 
+4 decimal places).
+
+<m>p_1 = </m> :n1
+<m>p_2 = 1</m>
+<m>v_1 = </m> :n3
+<m>v_2 = 1</m>
+
+:n1="-0.0001.. 0.0001" 2 ok
+:n3="-0.5001..-0.4999" 2 ok
+```
+
+\subsection{PointProjectionOnImplicitLine}
+
+This task tests comprehension of the basic concepts of analytic geometry and basic problem solving skills. 
+
+\subsubsection{Problem formulation}
+Find the projection $Q$ of the given point $P$ on the line $ax + by + c = 0$.
+
+\subsubsection{ROPOT question example}
+
+```
+Find the projection of the point <m>[4,-2]^\top</m> 
+on the line <m>3 y = 0</m>.
+
+<m>x =</m> :n1
+<m>y =</m> :n2
+
+:n1=" 3.9999.. 4.0001" 2 ok
+:n2="-0.0001.. 0.0001" 2 ok
+```
+
+\subsection{ScalarProductFromAngle}
+
+This task ensures the student has a notion of the connection between scalar product of two vectors and  the angle between them.
+
+\subsubsection{Problem formulation}
+Given norms of vectors $u$ and $v$ and the angle between them, find the scalar product $u\cdot v$.
+
+\subsubsection{ROPOT question example}
+
+```
+Find the scalar product of vectors <m>u</m> and 
+<m>v</m> where <m>\|u\| = 3, \; \|v\| = 1, </m> and 
+<m>u \perp v </m> (if the answer is a floating point 
+number round it to 4 decimal places).
+
+<M>u \cdot v = </m> :n
+
+:n="-0.0001.. 0.0001" 2 ok   
+```
+
+\subsection{ScalarProductFromVectors}
+
+This task tests students' basic understanding of scalar product. 
+
+\subsubsection{Problem formulation}
+Given coordinates of 3D vectors $u$ and $v$, find the scalar product $u\cdot v$.
+
+\subsubsection{ROPOT question example}
+
+```
+Find the scalar product of vectors <m>u</m> and 
+<m>v</m> where <m>u = (-3,3,-5)^\top, \; 
+v = (5,-5,-3)^\top </m> (if the answer is 
+a floating point number round it to 4 decimal places).
+
+<m>u \cdot v = </m> :n
+
+:n="-15.0001..-14.9999" 2 ok     
+```
+
+\subsection{SymmetricPointThroughImplicitLine}
+
+This task ensures the student has a deeper understanding of 2D geometry. The student should be able to form his thoughts as equations and solve them. 
+
+\subsubsection{Problem formulation}
+Find the point $Q$ which is symmetric to the given point $P$ with respect to the given line $ax + by + c = 0$.
+
+\subsubsection{ROPOT question example}
+
+```
+Find the point which is symmetric to the point 
+<m>[-5,3]^\top</m> with respect to the line 
+<m>2 x - 2 y - 1 = 0</m>.
+
+<m>x =</m> :n1
+<m>y =</m> :n2
+
+:n1=" 3.4999.. 3.5001" 2 ok
+:n2="-5.5001..-5.4999" 2 ok 
+```
+
+\section{Lecture 2}
+
+This lecture covers linear maps in 2D, their composition and homogeneous coordinates. 
+Important linear maps are:
+
+* scaling,
+* reflection,
+* rotation,
+* shear,
+* and projection.
+
+The properties of linear maps (such as area change) are explained, as well as inverse matrices. 
+
+\subsection{DeterminantOfTransformationMatrix}
+
+In order to solve this task, the student must know the geometrical meaning of transformation determinant. It also forces the student to deal with square roots in the matrix values.    
+
+\subsubsection{Problem formulation}
+Find the ratio of change of a given area through the transformation given by a $2\times2$ transformation matrix.
+
+\subsubsection{ROPOT question example}
+
+```
+Let <m>ABC</m> be a triangle, where <m>A=[1,-5]^\top</m>, 
+<m>B=[5,-2]^\top</m>, and <m>C=[-1,-3]^\top</m>. 
+How will the transformation <m>M=\begin{pmatrix} 
+\frac{1}{2}+\frac{\sqrt{3}}{2} & -\frac{\sqrt{3}}{1} \\ 
+\frac{7}{4} & -5  \end{pmatrix}</m> change the value of 
+product <m>\|{BH}\| \cdot \|{AC}\|</m>, 
+where <m>H\in AC</m> and <m>BH\bot AC</m>? 
+Enter the ratio of the change (the answer equal to 1 
+means no change, the answer less than 1 means it makes it smaller, 
+and the answer bigger than 1 means it makes it larger). 
+
+Ratio = :n1
+
+:n1="-3.7991..-3.7989" 4 ok
+```
+
+\subsection{HomogeneousMatrixOfComposition}
+
+The student should be able to understand the connection between a transformation and its corresponding homogeneous matrix and how translation composition translates into matrix product. This task is a homogeneous equivalent of the `MatrixOfComposition` task.
+
+\subsubsection{Problem formulation}
+Find the homogeneous matrix of composition of 3 homogeneous transformations.
+
+\subsubsection{ROPOT question example}
+
+```
+Fill in the coefficients of the transformation matrix <m>M</m> 
+in homogeneous coordinates which performs the following transform: 
+scale by 2 in <m>x</m>-coordinate and by 2 in <m>y</m>-coordinate, 
+rotation for <m>\frac{2}{3}\pi</m> radians around <m>z</m>-axis, 
+and translation by the vector (1, 5, 3).
+
+If the answer is a floating point number round it to 
+4 decimal places.
+
+<m>M_{11} = </m> :n11 <m>M_{12} = </m> :n12 
+<m>M_{13} = </m> :n13 <m>M_{14} = </m> :n14
+
+<m>M_{21} = </m> :n21 <m>M_{22} = </m> :n22 
+<m>M_{23} = </m> :n23 <m>M_{24} = </m> :n24
+
+<m>M_{31} = </m> :n31 <m>M_{32} = </m> :n32 
+<m>M_{33} = </m> :n33 <m>M_{34} = </m> :n34
+
+<m>M_{41} = </m> :n41 <m>M_{42} = </m> :n42 
+<m>M_{43} = </m> :n43 <m>M_{44} = </m> :n44
+
+:n11="-1.0001..-0.9999" 1 ok
+:n12="-1.7322..-1.7320" 1 ok
+:n13="-0.0001.. 0.0001" 1 ok
+:n14=" 0.9999.. 1.0001" 1 ok
+
+:n21=" 1.7320.. 1.7322" 1 ok
+:n22="-1.0001..-0.9999" 1 ok
+:n23="-0.0001.. 0.0001" 1 ok
+:n24=" 4.9999.. 5.0001" 1 ok
+
+:n31="-0.0001.. 0.0001" 1 ok
+:n32="-0.0001.. 0.0001" 1 ok
+:n33=" 0.9999.. 1.0001" 1 ok
+:n34=" 2.9999.. 3.0001" 1 ok
+
+:n41="-0.0001.. 0.0001" 0 ok
+:n42="-0.0001.. 0.0001" 0 ok
+:n43="-0.0001.. 0.0001" 0 ok
+:n44=" 0.9999.. 1.0001" 0 ok
+```
+
+\subsection{InverseMatrix}
+
+This task ensures the student is able to compute the inverse of a $2\times 2$ matrix.
+
+\subsubsection{Problem formulation}
+Find the inverse matrix for a given $2\times 2$ matrix.
+
+\subsubsection{ROPOT question example}
+
+```
+Compute the inverse matrix <m>A^{-1}</m> of the matrix 
+<m>A=\begin{pmatrix} -3 & -1 \\ -4 & -2 \end{pmatrix}</m> 
+(if the answer is a floating point number 
+round it to 4 decimal places).
+
+<m>a_{11} = </m> :n1 <m>a_{12} = </m> :n2
+<m>a_{21} = </m> :n3 <m>a_{22} = </m> :n4
+
+:n1="-1.0001..-0.9999" 1 ok
+:n2=" 0.4999.. 0.5001" 1 ok
+:n3=" 1.9999.. 2.0001" 1 ok
+:n4="-1.5001..-1.4999" 1 ok
+```
+
+\subsection{MatrixOfComposition}
+
+The student should be able to understand the connection between a transformation and its corresponding matrix and how translation composition translates into matrix product.     
+
+\subsubsection{Problem formulation}
+Find the matrix of composition of 3 transformations.
+
+\subsubsection{ROPOT question example}
+
+```
+Fill in the matrix of sequence of the 
+following three transformations: 
+(1) projection on <m>x</m>-axis, 
+(2) reflection with respect to <m>y=x</m> line, 
+and then (3) shear for 5 in <m>x</m>-coordinate
+(if the answer is a floating point number 
+round it to 4 decimal places).
+
+<m>a_{11} = </m> :n1 <m>a_{12} = </m> :n2
+<m>a_{21} = </m> :n3 <m>a_{22} = </m> :n4
+
+:n1=" 4.9999.. 5.0001" 1 ok
+:n2="-0.0001.. 0.0001" 1 ok
+:n3=" 0.9999.. 1.0001" 1 ok
+:n4="-0.0001.. 0.0001" 1 ok
+```
+
+\subsection{MatrixOfGivenTransformation}
+
+This task tests the student understands the matrices of basic transformations.
+
+\subsubsection{Problem formulation}
+
+Find the matrix corresponding to a given transformation.
+
+\subsubsection{ROPOT question example}
+
+```
+Fill in the matrix of rotation for 
+<m>-\frac{1}{4}\pi</m> radians (if the answer is 
+a floating point number round it to 4 decimal places).
+
+<m>a_{11} = </m> :n1 <m>a_{12} = </m> :n2
+<m>a_{21} = </m> :n3 <m>a_{22} = </m> :n4
+
+:n1=" 0.7070.. 0.7072" 1 ok
+:n2=" 0.7070.. 0.7072" 1 ok
+:n3="-0.7072..-0.7070" 1 ok
+:n4=" 0.7070.. 0.7072" 1 ok
+```
+
+\subsection{MatrixPreservesNormsAndAngles}
+
+The student can easily solve this task if he understands the geometric meaning of matrices as transformations. Another option is solve it the hard way checking all given vectors and angles between them.
+
+\subsubsection{Problem formulation}
+
+Check if the given $2\times2$ matrix preserves norms and angles of given vectors.
+
+\subsubsection{ROPOT question example}
+
+```
+Check if the transformation <m>A=\begin{pmatrix} 
+0 & \frac{\sqrt{3}}{2} \\ - \frac{\sqrt{3}}{2} & 0 
+\end{pmatrix}</m> preserves the norms of the following 
+vectors  and the angles between each pair of them: 
+<m>a = (3, 1)^\top</m>, <m>b = (4, 1)^\top</m>, 
+<m>c = (1, 1)^\top</m>, <m>d = (1, 0)^\top</m>. 
+Answer "y" if it preserves the norms of ALL vectors given, 
+"n" if it doesn't preserve the norm of ANY of them.
+
+Does it preserve the norms? (y/n) :t1
+Does it preserve the angles? (y/n) :t2
+
+:t1="n" 2 ok
+:t2="y" 2 ok
+```
+
+\subsection{RotationMatrixFromVectors}
+
+This task makes sure the students understand the composition of scale and rotation matrices and their effect on vectors.
+
+\subsubsection{Problem formulation}
+
+Find the $2\times2$ matrix of rotation given an input and its corresponding output vector.
+
+\subsubsection{ROPOT question example}
+
+```
+Find matrix <m>A</m> if <m>v'=BAv</m>. 
+<m>A</m> is a matrix of rotation, 
+<m>B</m> scales <m>x</m> and <m>y</m> by 
+the same ratio and <m>v=(2, -4)^\top;v'=(2, 4)^\top</m>. 
+<m>a_{11}</m> is a negative number.
+If the answer is a floating point number 
+round it to 4 decimal places.
+
+<m>a_{11} = </m> :n1 <m>a_{12} = </m> :n2
+<m>a_{21} = </m> :n3 <m>a_{22} = </m> :n4
+
+:n1="-0.6001..-0.5999" 1 ok
+:n2="-0.8001..-0.7999" 1 ok
+:n3=" 0.7999.. 0.8001" 1 ok
+:n4="-0.6001..-0.5999" 1 ok
+```
+
+\section{Lecture 3}
+
+This lecture focuses on matrix eigenvectors and eigenvalues. It explains their definition, computation (even numerical methods), and geometrical meaning. It covers the properties of symmetric matrices and matrix diagonalization.
+
+\subsection{Deflation}
+
+To solve this task, the student must know how to find the Hotteling's deflation.
+
+\subsubsection{Problem formulation}
+
+Find the Hotteling's deflation of a $3\times3$ matrix for a given eigenvalue and eigenvector of the matrix.
+
+\subsubsection{ROPOT question example}
+
+```
+Fill in the values of the matrix <m>A'</m> which is 
+the result of Hotteling's deflation for the matrix 
+<m>\left[\begin{matrix}0 & 0 & 0\\
+2 & 3 & -1\\ 0 & -5 & -1\end{matrix}\right]</m>, 
+eigenvalue <m>\lambda_1=4</m> and corresponding eigenvector 
+<m>u_1=[0,- \frac{\sqrt{2}}{2},\frac{\sqrt{2}}{2}]^\top</m>.
+If the answer is a floating point number 
+round it to 4 decimal places.
+
+<m>a'_{11}</m> = :n1 <m>a'_{12}</m> = :n2 <m>a'_{13}</m> = :n3
+<m>a'_{21}</m> = :n4 <m>a'_{22}</m> = :n5 <m>a'_{23}</m> = :n6
+<m>a'_{31}</m> = :n7 <m>a'_{32}</m> = :n8 <m>a'_{33}</m> = :n9
+
+:n1="-0.0001.. 0.0001" 1 ok
+:n2="-0.0001.. 0.0001" 1 ok
+:n3="-0.0001.. 0.0001" 1 ok
+
+:n4=" 1.9999.. 2.0001" 1 ok
+:n5=" 0.9999.. 1.0001" 1 ok
+:n6=" 0.9999.. 1.0001" 1 ok
+
+:n7="-0.0001.. 0.0001" 1 ok
+:n8="-3.0001..-2.9999" 1 ok
+:n9="-3.0001..-2.9999" 1 ok
+```
+
+\subsection{EigenvaluesEigenvectors2x2}
+
+This task ensures the student is able to compute the eigenvectors and eigenvalues for the simplest
+case -- $2\times2$ matrix.
+
+\subsubsection{Problem formulation}
+
+Find the eigenvalues and corresponding eigenvectors for a given $2\times2$ matrix.
+
+\subsubsection{ROPOT question example}
+
+```
+Find the eigenvalues and eigenvectors of matrix 
+<m>A=\begin{pmatrix} -1 & 0 \\ 1 & 0 \end{pmatrix}</m>.
+The eigenvalues should be in descending order 
+(<m>\lambda_1 > \lambda_2</m>). The eigenvectors should be 
+normalized <m>\|u_{i}\|=1</m> and have positive 
+first component <m>u_{i1} > 0</m>. If the answer is 
+a floating point number round it to 4 decimal places.
+
+<m>\lambda_1</m> = :n1
+<m>\lambda_2</m> = :n2
+<m>u_{11}</m> = :n3
+<m>u_{12}</m> = :n4
+<m>u_{21}</m> = :n5
+<m>u_{22}</m> = :n6
+
+:n1="-0.0001.. 0.0001" 1 ok
+:n2="-1.0001..-0.9999" 1 ok
+:n3="-0.0001.. 0.0001" 1 ok
+:n4=" 0.9999.. 1.0001" 1 ok
+:n5=" 0.7070.. 0.7072" 1 ok
+:n6="-0.7072..-0.7070" 1 ok
+```
+
+\subsection{EigenvaluesEigenvectors3x3}
+
+This task ensures the student is able to compute the eigenvectors and eigenvalues for $3\times3$ matrices. And thus, hopefully, in the general case as well.
+
+\subsubsection{Problem formulation}
+
+Find the eigenvalues and corresponding eigenvectors for a given $3\times3$ matrix.
+
+\subsubsection{ROPOT question example}
+
+```
+Find the eigenvalues and eigenvectors of matrix <m>A=
+\begin{pmatrix} 1 & 0 & 5 \\ 0 & -5 & 1 \\ 0 & 3 & -3 
+\end{pmatrix}</m>. The eigenvalues should be in descending 
+order (<m>\lambda_1 > \lambda_2 > \lambda_3</m>). 
+The eigenvectors should be normalized <m>\|u_{i}\|=1</m> 
+and have positive first nonzero component <m>u_{iJ} > 0 </m> 
+where <m>u_{ij} = 0 </m> for <m>j=1,\dots,J-1</m>.
+If the answer is a floating point number round it to 
+4 decimal places. If there are less than 3 unique 
+eigenvalues enter zeros in the corresponding fields.
+
+<m>\lambda_1</m> = :n1
+<m>\lambda_2</m> = :n2
+<m>\lambda_3</m> = :n3
+<m>u_{11}</m> = :n4
+<m>u_{12}</m> = :n5
+<m>u_{13}</m> = :n6
+<m>u_{21}</m> = :n7
+<m>u_{22}</m> = :n8
+<m>u_{23}</m> = :n9
+<m>u_{31}</m> = :n10
+<m>u_{32}</m> = :n11
+<m>u_{33}</m> = :n12
+
+:n1=" 0.9999.. 1.0001" 1 ok
+:n2="-2.0001..-1.9999" 1 ok
+:n3="-6.0001..-5.9999" 1 ok
+
+:n4=" 0.9999.. 1.0001" 1 ok
+:n5="-0.0001.. 0.0001" 1 ok
+:n6="-0.0001.. 0.0001" 1 ok
+
+:n7=" 0.8451.. 0.8453" 1 ok
+:n8="-0.1691..-0.1689" 1 ok
+:n9="-0.5072..-0.5070" 1 ok
+
+:n10=" 0.4507.. 0.4509" 1 ok
+:n11=" 0.6311.. 0.6313" 1 ok
+:n12="-0.6313..-0.6311" 1 ok
+```
+
+\subsection{MatrixFromEigenvectorsEigenvalues}
+
+In order to solve this task, the student needs to know the definition of eingevectors and eigenvalues and use basic algebraic reasoning. It also ensures the student understands what symmetric matrices are.
+
+\subsubsection{Problem formulation}
+
+Find the symmetric $2\times2$ matrix given its eigenvectors and eigenvalues.
+
+\subsubsection{ROPOT question example}
+
+```
+Construct a symmetric matrix A of type 2x2 having 
+the given (orthonormal) eigenvectors <m>u_1</m>, <m>u_2</m> 
+and eigenvalues <m>\lambda_1</m>, <m>\lambda_2</m> if:
+<m>u_1=\frac{1}{\sqrt{4}} \begin{pmatrix} 0 \\
+-2 \end{pmatrix}</m>; <m>u_2=\frac{1}{\sqrt{4}} 
+\begin{pmatrix} -2 \\ 0 \end{pmatrix}</m> 
+<m>\lambda_1=-2</m>; <m>\lambda_2=-4</m> If the answer 
+is a floating point number round it to 4 decimal places.
+
+<m>a_{11}</m> = :n1
+<m>a_{12}</m> = :n2
+<m>a_{21}</m> = :n3
+<m>a_{22}</m> = :n4
+
+:n1="-4.0001..-3.9999" 1 ok
+:n2="-0.0001.. 0.0001" 1 ok
+:n3="-0.0001.. 0.0001" 1 ok
+:n4="-2.0001..-1.9999" 1 ok
+```
+
+\subsection{PowerMethod}
+
+In order to solve this task, the student must be able to follow the Power Method Algorithm.
+
+\subsubsection{Problem formulation}
+
+Compute the third iteration of power method for a given initial vector and a $3\times3$ matrix.
+
+\subsubsection{ROPOT question example}
+
+```
+Write the estimates of the eigenvalue <m>\lambda_1</m> and 
+eigenvector (normalized) <m>u_1</m> of the matrix 
+<m>A=\begin{pmatrix} 0 & 0 & -1 \\ -5 & -1 & 3 \\ 
+-2 & 2 & -1 \end{pmatrix}</m> after 3 iterations of power
+method if the initial vector is <m>x^0=[1, -2, 5]^\top</m>.
+Eigenvalue <m>\lambda_1</m> is the largest eigenvalue 
+in absolute value of the given matrix. The corresponding 
+eigenvector <m>u_1</m> has positive first nonzero component 
+<m>u_{iJ} > 0 </m> where <m>u_{ij} = 0 </m> for 
+<m>j=1,\dots,J-1</m>. If the answer is a floating point 
+number round it to 4 decimal places.
+
+<m>\lambda_1</m> = :n1
+<m>u_{11}</m> = :n2
+<m>u_{12}</m> = :n3
+<m>u_{13}</m> = :n4
+
+:n1=" 2.3777.. 2.3779" 1 ok
+:n2="-0.2938..-0.2936" 1 ok
+:n3=" 0.6526.. 0.6528" 1 ok
+:n4="-0.6985..-0.6983" 1 ok
+```
+
+\subsection{VectorInEigenvectorBasis}
+
+This task tries to stress that eigenvectors of a matrix form a basis. The student should be able to translate vectors between different bases. 
+
+\subsubsection{Problem formulation}
+
+Find the coordinates of a given vector in the basis of eigenvectors of a given $2\times2$ matrix.
+
+\subsubsection{ROPOT question example}
+
+```
+Find the coordinates of the vector <m>v=\begin{pmatrix} 
+-2 \\ 1 \end{pmatrix}</m> in the basis of eigenvectors of 
+the matrix <m>A=\begin{pmatrix} -3 & -3 \\ -3 & -3 
+\end{pmatrix}</m>. The eigenvalues should be in descending 
+order (<m>\lambda_1 > \lambda_2</m>). The eigenvectors 
+should be normalized <m>\|u_{i}\|=1</m> and have 
+positive first component <m>u_{i1} > 0</m>. If the answer 
+is a floating point number round it to 4 decimal places.
+
+<m>v = \begin{pmatrix} v_1 \\ v_2 \end{pmatrix}</m> = 
+:n1 <m>u_{1}</m> + :n2 <m>u_{2}</m>
+
+:n1="-2.1214..-2.1212" 2 ok
+:n2="-0.7072..-0.7070" 2 ok
+```
+
+\section{Lecture 4}
+
+*This lecture was left out intentionally. The lecturer will implement the question sets to try out the project functionality.* 
+ \newline
+
+The general topic of the lecture is Principal Component Analysis. 
+
+\section{Lecture 5}
+
+This lecture covers geometric objects interactions, such as relative position in space and collision detection. It revises the parametric and implicit equations of lines and planes (and barycentric coordinates).
+
+It covers the following interactions:
+
+* line--line,
+* line--plane, 
+* line--plane.
+
+It analyzes in detail these types of collision:
+
+* sphere--plane,
+* sphere--sphere, 
+* and box--plane.
+
+
+\subsection{BarycentricCoordinates}
+
+This task ensures the student knows how barycentric coordinates work.
+
+\subsubsection{Problem formulation}
+
+Find the barycentric coordinates of a given 3D point with respect to 3 given points.
+
+\subsubsection{ROPOT question example}
+
+```
+Find the barycentric coordinates <m>u_1,u_2,u_3</m> of 
+the point <m>X=[0,-8,-32]^\top</m> with respect to the points 
+<m>P_1=[2,1,4]^\top</m>, <m>P_2=[-3,0,1]^\top</m> and 
+<m>P_3=[-2,1,4]^\top</m>.
+
+<m>X=u_1P_1+u_2P_2+u_3P_3</m>
+<m>u_1 = </m> :n1
+<m>u_2 = </m> :n2
+<m>u_3 = </m> :n3
+
+:n1="-4.0001..-3.9999" 2 ok
+:n2="-0.0001.. 0.0001" 2 ok
+:n3="-4.0001..-3.9999" 2 ok
+
+```
+
+\subsection{CollisionSpherePlane}
+
+In order to solve this task, the student must understand the theory behind sphere--plane collision.
+
+\subsubsection{Problem formulation}
+
+Find the time and point of collision of an implicit plane and a sphere $(P, r)$ travelling from point $P$ with a constant vector of speed $\vec v$.
+
+\subsubsection{ROPOT question example}
+
+```
+Given a plane <m>8 - 4 z=0</m> and a sphere <m>S(P,\rho)</m>, 
+where <m>\rho=5</m> meters moving from the point 
+<m>P_1 = [5.0,-1.0,-19.0]^\top</m> at time <m>t=0</m>s 
+with the constant velocity <m>v = (0, -1, 4)^\top</m> m/s. 
+Decide if the sphere can collide with the plane. 
+If yes, fill the time <m>\hat{t}</m> at which the collision 
+happens and enter the coordinates of the touching point 
+<m> C </m>. If no, fill in "x" to all the fields.
+If the answer is a floating point number 
+round it to 4 decimal places.
+
+<m> \hat{t} = </m> :n1 seconds
+<m> C_1 = </m> :n2 meters
+<m> C_2 = </m> :n3 meters
+<m> C_3 = </m> :n4 meters
+
+:n1=" 3.9999.. 4.0001" 2 ok
+:n2=" 4.9999.. 5.0001" 1 ok
+:n3="-5.0001..-4.9999" 1 ok
+:n4=" 1.9999.. 2.0001" 1 ok
+```
+
+\subsection{CollisionSphereSphere}
+
+In order to solve this task, the student must understand the theory behind sphere--sphere collision.
+
+\subsubsection{Problem formulation}
+
+Find the time and point of collision of two spheres travelling at constant velocity during 1 second from a given point to a given point.
+
+\subsubsection{ROPOT question example}
+
+```
+There are two spheres <m>S_1(P,\rho_P)</m> and 
+<m>S_2(Q,\rho_Q)</m> moving in the space, where 
+<m>P_1 = [1,2,-1]^\top, \rho_P=3</m>, 
+<m>Q_1=[-1,5,-1]^\top, \rho_Q=4</m>. The sphere 
+<m>S_1</m> travels to the point <m>P_2=[-3,-1,-2]^\top</m> 
+and the sphere <m>S_2</m> travels to the point 
+<m>Q_2=[-5,-3,4]^\top</m> with constant velocity during 1 second.
+Decide if the spheres will collide. If yes, fill the time 
+<m>\hat{t}</m> at which the collision happens and enter 
+the coordinates of the touching point <m> C </m>. 
+If no, fill in "x" to all the fields. If the answer is 
+a floating point number round it to 4 decimal places.
+
+<m> \hat{t} = </m> :t1 seconds
+<m> C_1 = </m> :t2 meters
+<m> C_2 = </m> :t3 meters
+<m> C_3 = </m> :t4 meters
+
+:t1="x" 2 ok
+:t2="x" 1 ok
+:t3="x" 1 ok
+:t4="x" 1 ok
+```
+
+\subsection{CrossProductFromAngle}
+
+This task ensures the student has a notion of the connection between cross product of two vectors and the angle between them. The knowledge of special cases (parallel vectors) is also useful to speed up the computation.
+
+\subsubsection{Problem formulation}
+
+Given norms of vectors $\vec u$ and $\vec v$ and the angle between them, find the cross product $\vec u\times \vec v$.
+
+\subsubsection{ROPOT question example}
+
+```
+Find the cross product of vectors <m>u</m> and <m>v</m> where 
+<m>\|u\| = 3, \; \|v\| = 4, </m> and 
+<m>u \uparrow\downarrow v</m> (if the answer is a floating 
+point number round it to 4 decimal places).
+
+<M>\|{a} \times {b}\| = </m> :n
+
+:n="-0.0001.. 0.0001" 2 ok     
+```
+
+\subsection{CrossProductFromVectors}
+
+In order to solve this task, the student must be able to apply the basic definition of the cross product. The knowledge of special cases (parallel vectors) is also useful to speed up the computation.
+
+\subsubsection{Problem formulation}
+
+Given vectors $\vec u$ and $\vec v$, find the cross product $\vec u \times \vec v$.
+
+\subsubsection{ROPOT question example}
+
+```
+Find the cross product of vectors <m>{u}</m> and 
+<m>{v}</m> where <m>{u} = (-2,-2,2)^\top, \; 
+{v} = (5,-2,-5)^\top </m> (if the answer is 
+a floating point number round it to 4 decimal places).
+
+<M>{c}={u} \times {v}</m>
+<M>c_1 = </m> :n1
+<M>c_2 = </m> :n2
+<M>c_3 = </m> :n3
+
+:n1=" 13.9999.. 14.0001" 2 ok
+:n2="-0.0001.. 0.0001" 2 ok
+:n3=" 13.9999.. 14.0001" 2 ok   
+```
+
+\subsection{DistanceParametricLineFromParametricLine}
+
+This task ensures the student understands the geometric interpretation of cross product. It is also necessary to understand parametric lines in 3D space.
+
+\subsubsection{Problem formulation}
+
+Find the distance between two 3D lines given parametrically.
+
+\subsubsection{ROPOT question example}
+
+```
+Find the distance <m>d</m> between lines <m>{p_1}(t) = 
+\begin{pmatrix} 0 \\ -4 \\ -5 \end{pmatrix} + 
+t \begin{pmatrix} 0 \\ -4 \\ -4 \end{pmatrix}</m> and 
+<m>{p_2}(t) = \begin{pmatrix} -3 \\ 0 \\ 1 \end{pmatrix} + 
+t \begin{pmatrix} 0 \\ -2 \\ 2 \end{pmatrix}</m> (if the answer 
+is a floating point number round it to 4 decimal places).
+<m>d = </m> :n
+
+:n=" 2.9999.. 3.0001" 2 ok   
+```
+
+\subsection{DistancePointFromImplicitPlane}
+
+This task ensures the student can apply the formula to compute the point--plane distance.
+
+\subsubsection{Problem formulation}
+
+Find the distance between a point $P$ and a plane given implicitly as $ax + by + cz + d = 0$
+
+\subsubsection{ROPOT question example}
+
+```
+Find the distance <m>D</m> from the plane 
+<m>3 x - 2 y + 5 = 0</m> to the point <m>[2,3,0]^\top</m>
+
+<m>D = </m> :n
+
+:n=" 1.3867.. 1.3869" 2 ok 
+```
+
+\subsection{IntersectionParametricLineImplicitPlane}
+
+To solve this task, the student must understand relative positions of planes and lines in 3D space. It is necessary to understand normal and directional vectors of lines and planes.
+
+\subsubsection{Problem formulation}
+
+Find the intersection of a parametric line and an implicit plane.
+
+\subsubsection{ROPOT question example}
+
+```
+Find the intersection point <m>C</m>of the line 
+<m>{p}(t) = \begin{pmatrix} 1 \\ 2 \\ 3 \end{pmatrix} + 
+t \begin{pmatrix} 4 \\ 1 \\ -3 \end{pmatrix}</m> and 
+the plane <m>2 x - 2 y + 2 z + 12 = 0</m>.
+If the line is parallel to the plane fill in "||" in 
+all the fields. If the line lies in the plane fill in 
+"L" in all the fields. (if the answer is a floating 
+point number round it to 4 decimal places).
+
+<M>C_1 = </m> :t1
+<M>C_2 = </m> :t2
+<M>C_3 = </m> :t3
+
+:t1="||" 2 ok
+:t2="||" 2 ok
+:t3="||" 2 ok
+```
+
+\subsection{VectorReflectionOnPlane}
+
+This task ensures the student understands the notion of vector reflections and he can compute it in this particular instance.
+
+\subsubsection{Problem formulation}
+
+Find the reflection of a given vector on a given implicit plane.
+
+\subsubsection{ROPOT question example}
+
+```
+Fill in the coefficients of the vector <m>v', \|v'\|=1</m> 
+which is the reflection of the vector <m>v = (4,0,-1)^\top</m> 
+on the plane <m>5 y - 3 z + 4 = 0</m>. If the vector is 
+parallel to the plane fill in "||" in all the fields. 
+If the answer is a floating point number 
+round it to 4 decimal places.
+
+<M>v'_1 = </m> :n1
+<M>v'_2 = </m> :n2
+<M>v'_3 = </m> :n3
+
+:n1=" 0.9700.. 0.9702" 2 ok
+:n2="-0.2141..-0.2139" 2 ok
+:n3="-0.1142..-0.1140" 2 ok
+```
+
+\section{Lecture 6}
+
+The sixth lecture provides an introduction to interpolation -- for 1D and 2D signals. It explains basic interpolation methods -- nearest neighbor, linear interpolation, while offering a more in-depth intuition of the presented topic. Interpolation convolution is presented along with various cubic interpolation kernels.
+
+The second part of the lecture focuses on generalizing these techniques for 2D signals.
+
+\subsection{Interpolation1D}
+
+The student should be able to compute Nearest neighbour interpolation, Linear interpolation, Catmull-Rom interpolation, Lanczos with ($n=2$) interpolation. By completing this task, the student can also see a comparison of these interpolation methods.
+
+\subsubsection{Problem formulation}
+
+Compute the following interpolations for a given point in a given grid with known function values: Nearest neighbour interpolation, Linear interpolation, Catmull-Rom interpolation, Lanczos with ($n=2$) interpolation.
+
+\subsubsection{ROPOT question example}
+
+```
+The function <m>g(u)</m> is given on the grid 
+<m>u=(-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5)</m>. 
+The corresponding function values are 
+<m>g(u_i)=(-43, -28, 4, 20, 13, 0, 0, 7, 2, -17, -29)</m>.
+Fill in the value of interpolated function 
+<m>\Hat{g}(x_0)</m> where <m>x_0=1.4</m> for different 
+interpolation methods. If the answer is a floating point 
+number round it to 4 decimal places.
+
+Nearest neighbour interpolation: 
+<m>\Hat{g}_{NN}(x_0) = </m> :n1
+Linear interpolation: 
+<m>\Hat{g}_{lin}(x_0) = </m> :n2
+Catmull-Rom interpolation: 
+<m>\Hat{g}_{CR}(x_0) = </m> :n3
+Lanczos with (n=2) interpolation: 
+<m>\Hat{g}_{L2}(x_0) = </m> :n4
+
+:n1="-0.0001.. 0.0001" 1 ok
+:n2=" 2.7999.. 2.8001" 1 ok
+:n3=" 2.9431.. 2.9433" 3 ok
+:n4=" 2.8719.. 2.8721" 3 ok
+```
+
+\subsection{InterpolationBilinear}
+
+This tasks tests whether the student is able to extend 1D linear interpolation into a 2D grid.
+
+\subsubsection{Problem formulation}
+
+Compute the bilinear interpolation for a given point inside a given $2\times2$ grid $g$ with known function values.
+
+\subsubsection{ROPOT question example}
+
+```
+The function <m>I(u,v)</m> is given on the grid
+<m>u=(-3, -2)</m> x <m>v=(4, 5)</m>. The corresponding 
+function values are
+<m>I(2,2)= 5</m>
+<m>I(3,2)= 1</m>
+<m>I(2,3)= -4</m>
+<m>I(3,3)= -2</m>
+Fill in the value of bilinearly interpolated function 
+<m>\Hat{I}(x_0,y_0)</m> where <m>x_0=-2.3</m>, <m>y_0=4.2</m>.
+If the answer is a floating point number 
+round it to 4 decimal places.
+<m>\Hat{I}(x_0,y_0) = </m> :n1
+
+:n1=" 1.2399.. 1.2401" 2 ok
+```
+
+\subsection{InterpolationCubic}
+
+This tasks makes sure the student is able to use cubic B-spline interpolation for a concrete instance.
+
+\subsubsection{Problem formulation}
+
+Compute the cubic B-spline interpolation for a given point inside a given $4\times4$ grid with known function values.
+
+\subsubsection{ROPOT question example}
+
+```
+The function <m>I(u,v)</m> is given on the grid 
+<m>u=(2, 5)</m> x <m>v=(-4, -1)</m>. The corresponding 
+function values are
+<m>I(1,1)= 4</m>
+<m>I(2,1)= 2</m>
+<m>I(3,1)= 1</m>
+<m>I(4,1)= -3</m>
+<m>I(1,2)= 3</m>
+<m>I(2,2)= 4</m>
+<m>I(3,2)= -3</m>
+<m>I(4,2)= 5</m>
+<m>I(1,3)= -2</m>
+<m>I(2,3)= 5</m>
+<m>I(3,3)= 3</m>
+<m>I(4,3)= 1</m>
+<m>I(1,4)= -5</m>
+<m>I(2,4)= -5</m>
+<m>I(3,4)= 1</m>
+<m>I(4,4)= 5</m>
+Fill in the value of function <m>\Hat{I}(x_0,y_0)</m> 
+approximated by cubic B-spline at the point <m>x_0=3.7</m>, 
+<m>y_0=-2.4</m>.If the answer is a floating point number 
+round it to 4 decimal places.
+    
+<m>\Hat{I}(x_0,y_0) = </m> :n1
+
+:n1=" 1.8649.. 1.8651" 2 ok
+```
+
+\section{Lecture 7}
+
+This lecture is an introduction to quaternions and rotations. It provides a quick overview of complex numbers and their manipulation and then attempts to generalize complex numbers into quaternions. It explains basic quaternion manipulation -- conjugates, inverses, addition, multiplication, exponentiation.
+
+The lecture also explains the connection of quaternions and rotations, using their trigonometric form.
+
+\subsection{ComplexNumberSimplification}
+
+By solving this task, the student proves his ability to work with complex expressions. This includes division and exponentiation.
+
+\subsubsection{Problem formulation}
+
+Find the real and the imaginary part of a given complex expression.
+
+\subsubsection{ROPOT question example}
+
+```
+Compute the complex number <m>z=(a,b)=
+\frac{\left(-5 - 2 i\right) \left(-5 + 2 i\right)}
+{-3 - 5 i + 5 + 5 i}</m>
+If the answer is a floating point number 
+round it to 4 decimal places.
+<m>a = </m> :n1
+<m>b = </m> :n2
+
+:n1=" 14.4999.. 14.5001" 3 ok
+:n2="-0.0001.. 0.0001" 3 ok
+```
+
+\subsection{QuaternionArithmetic}
+
+This task ensures The student must know quaternion conjugates, inverses, addition, and multiplication. 
+
+\subsubsection{Problem formulation}
+
+Compute simple expression involving two given quaternions.
+
+\subsubsection{ROPOT question example}
+
+```
+There are 2 quaternions given: 
+<m>q_1=2 + 0 i + \left(-2\right) j + \left(-5\right) k</m> and 
+<m>q_2=\left(-5\right) + 2 i + 0 j + \left(-4\right) k</m>
+Compute the following expression:
+<m>q = q_2^*q_2+3q_1^{-1}q_1^*</m>
+If the answer is a floating point number 
+round it to 4 decimal places.
+
+<m>q = </m> :n1 <m>+</m> :n2 
+<m>i+</m> :n3 <m>j+</m> :n4 <m>k</m>
+
+:n1=" 42.7272.. 42.7274" 3 ok
+:n2="-0.0001.. 0.0001" 3 ok
+:n3=" 0.7272.. 0.7274" 3 ok
+:n4=" 1.8181.. 1.8183" 3 ok
+```
+
+\subsection{QuaternionToTrigonometric}
+
+The student is able to convert a quaternion to its trigonometric form.
+
+\subsubsection{Problem formulation}
+
+Compute the trigonometric form of a given rotation quaternion.
+
+\subsubsection{ROPOT question example}
+
+```
+There is quaternion given: <m>q=- \frac{\sqrt{2}}{2} + 
+\frac{\sqrt{5}}{10} i + 0 j + \frac{3 \sqrt{5}}{10} k, 
+q\in \mathbb{H}_1</m>. Fill in the parameters of its trigonometric 
+form <m>q = (\cos\theta, {v} \sin\theta), \theta \in (-\pi,\pi]</m>.
+If the answer is a floating point number round it to 4 decimal 
+places. Enter the solution having the first nonzero component of 
+<m>{v}</m> positive.
+
+<m>\theta = </m> :n1
+<m>v_1 =</m> :n2
+<m>v_2 =</m> :n3
+<m>v_3 =</m> :n4
+
+:n1=" 2.3561.. 2.3563" 3 ok
+:n2=" 0.3161.. 0.3163" 3 ok
+:n3="-0.0001.. 0.0001" 3 ok
+:n4=" 0.9486.. 0.9488" 3 ok
+```
+
+\subsection{RotateVectorBy2Quaternions}
+
+To solve this task, the student must know how to compose quaternion rotations. 
+
+\subsubsection{Problem formulation}
+
+Rotate a given vector by two quaternions in a given order.
+
+\subsubsection{ROPOT question example}
+
+```
+Rotate the vector <m>{v}=(-1, 0, 0)^\top</m> using first 
+the quaternion <m>q_1=- \frac{\sqrt{3}}{2} + 
+\frac{\sqrt{2}}{4} i + \left(- \frac{1}{4}\right) j + 
+\left(- \frac{1}{4}\right) k</m>, then the quaternion 
+<m>q_2=0 + \frac{2}{3} i + \frac{1}{3} j + \frac{2}{3} k, 
+q_1,q_2\in \mathbb{H}_1</m>. If the answer is 
+a floating point number round it to 4 decimal places.
+
+<m>{v'}_1 =</m> :n1
+<m>{v'}_2 =</m> :n2
+<m>{v'}_3 =</m> :n3
+
+:n1=" 0.5114.. 0.5116" 4 ok
+:n2=" 0.1369.. 0.1371" 4 ok
+:n3="-0.8484..-0.8482" 4 ok
+```
+
+\subsection{RotateVectorByQuaternion}
+
+The student proves that he is able to rotate a vector using quaternions.
+
+\subsubsection{Problem formulation}
+
+Rotate a vector by a given quaternion.
+
+\subsubsection{ROPOT question example}
+
+```
+Rotate the vector <m>{v}=(-3, 1, 0)^\top</m> using 
+the following quaternion <m>q=\left(- \frac{1}{2}\right) 
+- \frac{\sqrt{2}}{2} i + 0 j + \left(- \frac{1}{2}\right) 
+k, q\in \mathbb{H}_1</m>. If the answer is 
+a floating point number round it to 4 decimal places.
+
+<m>{v'}_1 =</m> :n1
+<m>{v'}_2 =</m> :n2
+<m>{v'}_3 =</m> :n3
+
+:n1="-2.0001..-1.9999" 4 ok
+:n2="-2.0001..-1.9999" 4 ok
+:n3="-1.4143..-1.4141" 4 ok
+```
+
+\section{Lecture 8}
+
+The eight lecture dives deeper into quaterion arithmetic, it explains the logarithm and general exponentiation. 
+
+The second part of the lecture covers the rotation interpolation using quaternions: LERP, SLERP, SQUAD.
+
+\subsection{QuaternionExponent}
+
+This task ensures the student understands quaternion normalization and integer exponentiation.
+
+\subsubsection{Problem formulation}
+
+Normalize a given quaternion and raise it to a given power.
+
+\subsubsection{ROPOT question example}
+
+```
+There is a quaternion given: 
+<m>q=- \frac{\sqrt{6}}{2} + \left(- \frac{3}{2}\right) i 
+- \frac{3 \sqrt{2}}{4} j + - \frac{3 \sqrt{2}}{4} k</m>
+Compute the normalized version <m>q_N</m> of this quaternion 
+and the following expression. If the answer is a floating 
+point number round it to 4 decimal places.
+
+<m>q_N^6 = </m> :n1 <m>+</m> :n2 
+<m>i+</m> :n3 <m>j+</m> :n4 <m>k</m>
+
+:n1=" 0.9999.. 1.0001" 2 ok
+:n2="-0.0001.. 0.0001" 2 ok
+:n3="-0.0001.. 0.0001" 2 ok
+:n4="-0.0001.. 0.0001" 2 ok
+```
+
+\subsection{QuaternionExponentDerivative}
+
+To solve this task, the student must understand quaternion exponentiation as a function and be able to find its derivative.
+
+\subsubsection{Problem formulation}
+
+Normalize a given quaternion $q$ and compute the derivative of $q^t$ in a given point $t$.
+
+\subsubsection{ROPOT question example}
+
+```
+There is quaternion given: <m>q=\left(-1\right) + 
+\frac{1}{2} i + \left(- \frac{1}{2}\right) j - 
+\frac{\sqrt{2}}{2} k</m>. Compute the normalized version 
+<m>q_N</m> of this quaternion and the following expression.
+If the answer is a floating point number 
+round it to 4 decimal places.
+
+<m>f'(t) = \frac{d}{dt}\left(q_N^t\right)</m>
+<m>f'(5) = </m> :n1 <m>+</m> :n2 
+<m>i+</m> :n3 <m>j+</m> :n4 <m>k</m>
+
+:n1=" 1.6660.. 1.6662" 2 ok
+:n2=" 0.8329.. 0.8331" 2 ok
+:n3="-0.8331..-0.8329" 2 ok
+:n4="-1.1782..-1.1780" 2 ok
+```
+
+\subsection{QuaternionLerpSlerp}
+
+The purpose of this task is to make sure the students understand LERP and SLERP for rotations and they can use it practice.
+
+\subsubsection{Problem formulation}
+
+Compute LERP and SLERP for two given rotations and an interpolation parameter.
+
+\subsubsection{ROPOT question example}
+
+```
+There are 2 rotations given:
+1) Rotation by <m>\theta_1=\frac{\pi}{2}</m> around the vector 
+<m>{v_1}=(\frac{4}{3}, \frac{4}{3}, \frac{2}{3})^\top</m>
+2) Rotation by <m>\theta_2=\pi</m> around the vector 
+<m>{v_2}=(\frac{5}{3}, \frac{10}{3}, - \frac{10}{3})^\top</m>
+Compute the interpolated rotation parameters 
+<m>\theta_h \in [\frac{\pi}{2}, \pi]</m> and 
+<m>{v_h} : \|{v_h}\|=1</m> using Lerp and Slerp for 
+the given parameter <m>h=0.7</m>.
+If the answer is a floating point number 
+round it to 4 decimal places.
+<b>Pay attention on conditions for <m>\theta_h</m> and 
+<m>{v_h}</m> filling in the values!</b>
+<p>
+Parameters computed using <m>Lerp(q_1, q_2, h)</m> interpolation:
+<m>\theta_h = </m> :n1
+<m>v_{h1} = </m> :n2
+<m>v_{h2} = </m> :n3
+<m>v_{h3} = </m> :n4
+<p>
+Parameters computed using <m>Slerp(q_1, q_2, h)</m> interpolation:
+<m>\theta_h = </m> :n11
+<m>v_{h1} = </m> :n21
+<m>v_{h2} = </m> :n31
+<m>v_{h3} = </m> :n41
+
+:n1=" 2.6332.. 2.6334" 2 ok
+:n2=" 0.4588.. 0.4590" 2 ok
+:n3=" 0.7445.. 0.7447" 2 ok
+:n4="-0.4849..-0.4847" 2 ok
+
+:n11=" 2.5884.. 2.5886" 2 ok
+:n21=" 0.4695.. 0.4697" 2 ok
+:n31=" 0.7498.. 0.7500" 2 ok
+:n41="-0.4661..-0.4659" 2 ok
+```
+
+\section{Lecture 9}
+
+The topic of this lecture is curve fitting. It derives both linear and nonlinear least squares methods and explains how to compute them for a given set of points. Then, it briefly covers RANSAC and explains its pros. 
+
+\subsection{LeastSquareVerticalTotalPolynomial}
+
+This tasks tests student's understanding of simple interpolations and gives him the opportunity to compare them.
+
+\subsubsection{Problem formulation}
+
+Given a point set of 4 points, fit the points using vertical and total linear least square approximation, then using second-order least square approximation.
+
+\subsubsection{ROPOT question example}
+
+```
+The point set is given: <m>[x,y]^\top=[1,-5]^\top,
+[4,-2]^\top,[5,-1]^\top,[6,0]^\top</m>.
+Fit the line in this point set using vertical and 
+total linear least square approximation.
+Fit the polynomial of the second order 
+using least square approximation.
+Fill in the values of parameters of the requested curves.
+If the answer is a floating point number 
+round it to 4 decimal places. 
+
+Vertical least square approximation: 
+<m>f_{LSv} = </m> :n11 <m>x</m> + :n12
+Total least square approximation: 
+<m>f_{LSt} = </m> :n21 <m>x</m> + :n22
+Polynomial least square approximation: 
+<m>f_{LSp2} = </m> :n31 <m>x^2</m> + :n32 <m>x</m> + :n33
+
+
+:n11=" 0.9999.. 1.0001" 3 ok
+:n12="-6.0001..-5.9999" 3 ok
+
+:n21=" 0.9999.. 1.0001" 3 ok
+:n22="-6.0001..-5.9999" 3 ok
+
+:n31="-0.0001.. 0.0001" 2 ok
+:n32=" 0.9999.. 1.0001" 2 ok
+:n33="-6.0001..-5.9999" 2 ok
+```
+
+\subsection{NonlinearLeastSquares}
+
+The student understands general interpolation and can apply it to a concrete problem.
+
+\subsubsection{Problem formulation}
+
+Given a point set of 3 points and a nonlinear function, fit the given function to the point set using Gauss-Newton method.
+
+\subsubsection{ROPOT question example}
+
+```
+The point set is given: <m>[x,y]^\top=[-2.0,-0.7]^\top,
+[-1.5,-0.3]^\top,[-1.0,-0.8]^\top</m>. Fit function 
+<m>f(x)=p_{1} \sin{\left(p_{2} x \right)} + p_{3} x</m> into 
+this point set using least square approximation.
+Fill in the values of parameters <p_i> after the first and 
+the second iterations of Gauss-Newton method (k=1, k=2) 
+if the initial set of parameters is <m>p^0=[1, \pi, 1]^T</m>.
+If the answer is a floating point number 
+round it to 4 decimal places.
+
+The values after the first iteration (k=1):
+<m>p_1 = </m> :n11
+<m>p_2 = </m> :n12
+<m>p_3 = </m> :n13
+The values after the second iteration (k=2):
+<m>p_1 = </m> :n21
+<m>p_2 = </m> :n22
+<m>p_3 = </m> :n23
+
+:n11=" 0.5604.. 0.5606" 3 ok
+:n12=" 2.9188.. 2.9190" 3 ok
+:n13=" 0.5741.. 0.5743" 3 ok
+
+:n21=" 0.6323.. 0.6325" 3 ok
+:n22=" 2.7578.. 2.7580" 3 ok
+:n23=" 0.5691.. 0.5693" 3 ok
+```
+
+\section{Lecture 10}
+
+This lecture covers the geometry of curves. It is divided into two sections: parametric and implicit curves.
+
+For parametric curves, it explains how to compute their length, normal, tangent, binormal, Frenet frame and curvature. It also provides a geometric intuition for these terms. 
+
+For implicit curves, it explains the nabla operator and its use (and meaning) for implicit curves. It covers the normal and curvature computation of implicitly given curves.
+
+\subsection{ImplicitCurveProperties}
+
+This task ensures the student can compute basic properties of implicit curves -- the unit normal and curvature.
+
+\subsubsection{Problem formulation}
+
+Find the unit normal and curvature of a given implicit curve at a given point.
+
+\subsubsection{ROPOT question example}
+
+```
+There is an implicit curve given by the formula: 
+<m>x y - x - y^{3} - 2 y^{2} + \frac{1}{2}=0</m>.
+Compute the unit normal and curvature of the curve 
+at point <m>[x,y]^\top = [-2, 2]^\top</m>:
+<m>n(-2, 2)= (</m> :n11, :n12 <m>)</m>
+<m>\kappa(-2, 2)= </m> :n2
+
+If the answer is a floating point number 
+round it to 4 decimal places.
+
+:n11=" 0.0453.. 0.0455" 2 ok
+:n12="-0.9991..-0.9989" 2 ok
+:n2=" 0.0025.. 0.0027" 4 ok
+```
+
+\subsection{ParametricCurveProperties}
+
+This task ensures the student can compute basic properties of parametric curves in 3D -- their length, curvature and Frenet frame of reference.
+
+\subsubsection{Problem formulation}
+
+Find the length, curvature and Frenet frame of a given parametric curve in 3D at a given point.
+
+\subsubsection{ROPOT question example}
+
+```
+There is a parametric curve given: <m>p(t)=
+[3 t - 1, - \cos{\left(\frac{t}{2} \right)} - \frac{\pi}{2}, 
+\sin{\left(\frac{t}{2} \right)} - 4]^\top</m> 
+with <m>t\in [0, \frac{3 \pi}{2}]</m>.
+Compute the length of the curve:
+<m>L = </m> :n1
+Frenet frame and curvature at point <m>t = \pi</m>.
+<m>T(\pi) = (</m> :n21, :n22, :n23 <m>)</m>
+<m>N(\pi) = (</m> :n31, :n32, :n33 <m>)</m>
+<m>B(\pi) = (</m> :n41, :n42, :n43 <m>)</m>
+<m>\kappa(\pi) = </m> :n5
+
+If the answer is a floating point number 
+round it to 4 decimal places.
+
+:n1=" 14.3321.. 14.3323" 3 ok
+
+:n21=" 0.9863.. 0.9865" 1 ok
+:n22=" 0.1643.. 0.1645" 1 ok
+:n23="-0.0001.. 0.0001" 1 ok
+
+:n31="-0.0001.. 0.0001" 1 ok
+:n32="-0.0001.. 0.0001" 1 ok
+:n33="-1.0001..-0.9999" 1 ok
+
+:n41="-0.1645..-0.1643" 1 ok
+:n42=" 0.9863.. 0.9865" 1 ok
+:n43="-0.0001.. 0.0001" 1 ok
+
+:n5=" 0.0269.. 0.0271" 3 ok
+```
+
+\section{Lecture 11}
+
+The last lecture covers both parametric and implicit surfaces. The latter is only briefly mentioned, because the computations are much easier. 
+
+It revises basic concepts and goes through normal, tangent and curvature computation. It gives an introduction to first and second fundamental form and their applications.
+
+\subsection{ParametricSurfaceProperties}
+
+This task ensures the student can compute basic properties of parametric surfaces -- the unit normal, mean curvature, and Gaussian curvature.
+
+\subsubsection{Problem formulation}
+
+Find the normal, mean and Gaussian curvature of a given parametric surface at
+    a given point.
+
+\subsubsection{ROPOT question example}
+
+```
+There is a parametric surface given: <m>p(t)=
+[u \left(- 2 u^{2} + u v + v\right), 3 u^{3} + 3 u v - 3, 
+5 u - v^{3} + 2 v^{2} + 4]^\top</m> 
+with <m>(u,v)\in [-2,2]\times[-2,2]</m>.
+Compute unit normal and both curvatures of 
+the surface at point <m>(u,v) = [-2, 2]^\top</m>.
+If the answer is a floating point number 
+round it to 4 decimal places.
+
+Normal:
+<m>n = (</m> :n11, :n12, :n13 <m>)</m>
+
+Gaussian curvature:
+<m>K = </m> :n2
+
+Mean curvature:
+<m>H = </m> :n3
+
+:n11="-0.6870..-0.6868" 1 ok
+:n12="-0.5476..-0.5474" 1 ok
+:n13=" 0.4778.. 0.4780" 1 ok
+
+:n2="-0.0001.. 0.0001" 2 ok
+
+:n3="-0.1237..-0.1235" 3 ok
+```
+
+\end{markdown*}
+\shorthandon{-}
