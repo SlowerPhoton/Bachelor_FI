@@ -69,10 +69,10 @@
     TeXkeywords = {PV189, mathematics for computer graphics, SymPy, ROPOT question set, mathematical problem generation},
     abstract    = {%
       This thesis aims to generate question sets for the course PV189 while also providing a functional interface for future amendments and additions. The output must be compatible with IS ROPOTs, and it should be able to set a tolerance for non-integer answers. It should be possible to solve all the generated questions by hand, possibly with the aid of a calculator.  
-The tasks generally revise basic concepts from the lectures and help build geometric intuition about them.  For many questions, symbolic computation has proven useful. In this case, the full functionality is implemented using Python 3; the symbolic computation is accomplished via the open-source Python library SymPy. 
+The tasks generally revise basic concepts from the lectures and help build geometric intuition about them.  For many questions, symbolic computation has proven useful. In this case, the full functionality is implemented using Python 3; the symbolic computation is accomplished via the open-source Python library SymPy. The programming language Python has been used for the whole implementation. 
     },
     thanks      = {%
-      I take this opportunity to express gratitude to my supervisor doc. RNDr. Pavel Matula, Ph.D. and appreciate him for not losing his patience with me. Additionally, I would like to say a special thanks to Eva Drštková for going the extra mile to make this thesis possible. 
+      I take this opportunity to express gratitude to my supervisor, doc. RNDr. Pavel Matula, Ph.D., and appreciate him for not losing his patience with me. Additionally, I would like to say a special thanks to Eva Drštková for going the extra mile to make this thesis possible. 
     },
     bib         = example.bib,
     %% Uncomment the following line (by removing the %% at the
@@ -116,7 +116,7 @@ The tasks generally revise basic concepts from the lectures and help build geome
 
 \chapter{Tools}
 
-Throughout the implementation of the project, I had to familiarize myself with new tools in order to accomplish or facilitate different parts of the project. This includes well-known libraries \verb|numpy| and \verb|scipy| with plentiful documentation, and for this reason I will not expand on them further. Aside from these, I have frequently made use of the library for symbolic computation \verb|SymPy|, the basics of which are explained further in this section. 
+Throughout the implementation of the project, I had to familiarize myself with new tools in order to accomplish or facilitate different parts of the project. This includes well-known libraries \verb|numpy| and \verb|scipy| with plentiful documentation, and for this reason, I will not expand on them further. Aside from these, I have frequently made use of the library for symbolic computation \verb|SymPy|, the basics of which are explained further in this section. 
 
 As the purpose of this project is to create question sets compatible with the university information system IS, it is necessary to explain the basic syntax for creating question sets. 
 
@@ -509,7 +509,67 @@ The implementation for generation of a concrete problem. E.g., the class \verb|I
 \input{implemented_tasks}
 
 
-\chapter{Contents}
+\chapter{Project structure}
 
+\shorthandoff{-}
+\begin{markdown*}{%
+  hybrid,
+  definitionLists,
+  footnotes,
+  inlineFootnotes,
+  hashEnumerators,
+  fencedCode,
+  citations,
+  citationNbsps,
+  pipeTables,
+  tableCaptions,
+}
+
+Each in its own Python file, the implemented tasks are located inside a 
+directory matching the corresponding lecture. E.g., the directory `L8` contains all tasks
+related to the eighth lecture. Aside from these directories, there are several 
+other files inside the root of the project. 
+
+
+## `task.py`
+This file contains the definition of the class Task, which is the parent
+class for all the implemented tasks. All the static and abstract methods of the class
+are defined and documented here.
+
+## `sample_question_set.txt`
+This is a sample output of a task -- a set of questions compatible with ROPOTs.
+
+## `homogeneous_matrix_utils.py`
+
+This file contains methods directly related to the generation of homogeneous matrices.
+
+## `matrix_utils.py`
+
+This is a more general file (opposed to `homogeneous_matrix_utils.py`) containing
+methods related to matrices. 
+
+## `sympy_utils.py`
+
+This is a file for methods taking advantage of the SymPy library. Put such methods
+in here unless a more specific file is suitable.
+
+## `test_utils.py`
+
+This file is a container for methods that are generally used inside the 
+implementation of the `testfun` abstract method.
+
+## `utils.py`
+
+This is a file for methods that do not fit elsewhere, and it would not 
+make much sense to create a separate file for them.
+
+## `bachelor_thesis.pdf`
+
+This is the text of the bachelor thesis. You might find more information 
+there if necessary, but in theory, the project documentation should suffice.
+
+
+\end{markdown*}
+\shorthandon{-}
 
 \end{document}
